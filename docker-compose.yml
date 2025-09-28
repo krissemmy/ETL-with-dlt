@@ -1,0 +1,27 @@
+services:
+  postgres:
+    image: postgres:15
+    container_name: dlt_pg
+    environment:
+      POSTGRES_DB: dwh
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg_data:/var/lib/postgresql/data
+  grafana:
+    image: grafana/grafana:10.4.2
+    depends_on: [postgres]
+    ports: ["3000:3000"]
+    environment:
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+    volumes:
+      - grafana_data:/var/lib/grafana
+    restart: unless-stopped
+
+
+volumes:
+  pg_data:
+  grafana_data:
