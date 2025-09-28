@@ -16,6 +16,12 @@ A simple ETL pipeline that extracts Ethereum block data and loads it into Postgr
 # Create virtual environment
 python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
+```
+
+```
+# Clone repo
+git clone https://github.com/krissemmy/ETL-with-dlt.git
+cd ETL-with-dlt
 
 # Install dependencies
 pip install -r requirements.txt
