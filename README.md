@@ -67,7 +67,7 @@ mkdir -p ~/logs
 crontab -e
 
 # Add this line:
-*/30 * * * * /bin/bash -c 'echo "$(date) - Starting cron job for Ethereum block data" >> ~/logs/rest_api_pipeline.log' && /home/ubuntu/venv/bin/python /home/ubuntu/ETL-with-dlt/rest_api_pipeline.py >> ~/logs/rest_api_pipeline.log 2>&1
+*/30 * * * * /bin/bash -c 'echo "$(date) - Starting cron job for Ethereum block data" >> ~/logs/rest_api_pipeline.log' && cd /home/ubuntu/ETL-with-dlt/ && /home/ubuntu/venv/bin/python rest_api_pipeline.py >> ~/logs/rest_api_pipeline.log 2>&1
 ```
 
 ## Grafana Setup

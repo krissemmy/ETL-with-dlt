@@ -76,6 +76,8 @@ def load_blockchain_blocks() -> None:
     print(load_info)
     print("\nTry this SQL:")
     print(f"""SELECT number AS block_number, to_timestamp(timestamp) AS block_ts, transactions_count, gas_used FROM {CHAIN_NAME}.blocks ORDER BY number DESC LIMIT 100;""")
+    print("------------------------------------------------------------------------------------------------")
+    print("\n")
 
 
 if __name__ == "__main__":
