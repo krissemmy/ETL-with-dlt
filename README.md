@@ -18,7 +18,7 @@ python -m venv venv
 source venv/bin/activate  # On Windows: venv\Scripts\activate
 ```
 
-```
+```bash
 # Clone repo
 git clone https://github.com/krissemmy/ETL-with-dlt.git
 cd ETL-with-dlt
@@ -37,7 +37,8 @@ docker compose up -d
 ### 3. Configure Database
 
 The pipeline uses these default PostgreSQL credentialsm comfigure at `.dlt/secrets.toml`:
-```
+
+```bash
 cat > .dlt/secrets.toml <<EOF
 [destination.postgres.credentials]
 database = "dwh"
@@ -61,16 +62,17 @@ python rest_api_pipeline.py
 **Scheduled run (every 30 minutes):**
 
 ```bash
+mkdir -p ~/logs
 # Add to crontab
 crontab -e
 
 # Add this line:
-*/30 * * * * /bin/bash -c 'echo "$(date) - Starting cron job for Ethereum block data" >> ~/logs/dq_checrest_api_pipeline.log' && /home/ubuntu/venv/bin/python /home/ubuntu/ETL-with-dlt/rest_api_pipeline.py >> ~/logs/rest_api_pipeline.log 2>&1
+*/30 * * * * /bin/bash -c 'echo "$(date) - Starting cron job for Ethereum block data" >> ~/logs/rest_api_pipeline.log' && /home/ubuntu/venv/bin/python /home/ubuntu/ETL-with-dlt/rest_api_pipeline.py >> ~/logs/rest_api_pipeline.log 2>&1
 ```
 
 ## Grafana Setup
 
-1. **Access Grafana:** http://localhost:3000
+1. **Access Grafana:** [Grafana Link](http://localhost:3000)
    - Username: `admin`
    - Password: `admin`
 
@@ -118,10 +120,9 @@ The `ethereum.blocks` table contains:
 - `hash`: Block hash
 - `parent_hash`: Previous block hash
 
-
 ## (Optional) To install Docker and DOcker Compose on ur server
 
-```
+```bash
 #!/bin/bash
 
 # Update system
