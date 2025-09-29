@@ -1,6 +1,4 @@
 import dlt
-import os
-from dlt.sources.rest_api import rest_api_source
 from dlt.sources.helpers import requests
 
 RPC_URL = "https://ethereum-rpc.publicnode.com"
