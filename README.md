@@ -107,6 +107,8 @@ crontab -e
 - Loads data into PostgreSQL with automatic deduplication
 - Provides real-time blockchain analytics via Grafana
 
+<img width="1721" height="295" alt="Screenshot 2025-10-02 at 10 30 25" src="https://github.com/user-attachments/assets/c75fe9c1-674b-42ca-b392-87034e50fdce" />
+
 ## Data Schema
 
 The `ethereum.blocks` table contains:
